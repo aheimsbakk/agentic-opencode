@@ -9,8 +9,6 @@ A ready-to-use agent and skill template for [OpenCode](https://opencode.ai) — 
 - **Ralph loop** — an autonomous iteration plugin that feeds a prompt back until a task is done
 - **`update.sh`** — one script to fetch or refresh all template files from GitHub
 
----
-
 ## Quick start
 
 Fetch all template files into your project with a single `curl` command:
@@ -24,44 +22,6 @@ Then update at any time by running:
 ```bash
 ./.opencode/update.sh
 ```
-
----
-
-## Updating
-
-The `update.sh` script downloads `AGENTS.md`, `opencode.json`, and everything under `.opencode/` from this repository. It skips files listed in `.opencode/.gitignore` (such as `node_modules/`) so your local dependencies are never overwritten.
-
-### Options
-
-```
-Usage: update.sh [OPTIONS] [BRANCH/TAG]
-
-Options:
-  -D            Delete the legacy ./agents folder before updating
-  -d DIR        Target directory (default: current directory)
-  -h, --help    Show this help message and exit
-  -v, --version Show version and exit
-```
-
-### Examples
-
-```bash
-# Update from main into the current directory
-./.opencode/update.sh
-
-# Update from a specific tag
-./.opencode/update.sh v1.2.0
-
-# Update into a different project directory
-./.opencode/update.sh -d ~/myproject
-
-# Remove the legacy agents/ folder, then update
-./.opencode/update.sh -D
-```
-
-`update.sh` requires `curl` and `python3`.
-
----
 
 ## Agents
 
@@ -99,8 +59,6 @@ Helps you think more clearly rather than thinking for you. Uses structured techn
 Mode: primary | Temperature: 0.7 | Tools: read (only when explicitly asked)
 ```
 
----
-
 ## Skills
 
 Skills are instruction sets stored in `.opencode/skills/`. An agent loads a skill with the `skill` tool when the task matches its description. Skills extend agent behavior without changing the agent's core persona.
@@ -128,8 +86,6 @@ Load this skill when the user says "remember", references a past session, or sta
 Defines the end-of-task ceremony: write a worklog in `docs/worklogs/`, bump the version with `scripts/bump-version.sh`, stage only the changed files, and commit using Conventional Commits format. No wildcard staging (`git add .`) is allowed.
 
 Load this skill when the user says "wrap up", "commit", or "done".
-
----
 
 ## Ralph loop
 
@@ -189,8 +145,6 @@ The agent must only output the promise tag when the statement is **genuinely tru
 
 The plugin is written in TypeScript (`/.opencode/plugin/ralph.ts`) and depends on `@opencode-ai/plugin`. Dependencies are installed locally under `.opencode/node_modules/` and are excluded from Git via `.opencode/.gitignore`.
 
----
-
 ## Repository layout
 
 ```
@@ -218,8 +172,36 @@ The plugin is written in TypeScript (`/.opencode/plugin/ralph.ts`) and depends o
         └── ralph.ts            # Ralph loop TypeScript plugin
 ```
 
----
+## Updating
 
-## Contributing
+The `update.sh` script downloads `AGENTS.md`, `opencode.json`, and everything under `.opencode/` from this repository. It skips files listed in `.opencode/.gitignore` (such as `node_modules/`) so your local dependencies are never overwritten.
 
-Open an issue or pull request on [GitHub](https://github.com/aheimsbakk/agentic-opencode). Please follow the Conventional Commits format for commit messages.
+### Options
+
+```
+Usage: update.sh [OPTIONS] [BRANCH/TAG]
+
+Options:
+  -D            Delete the legacy ./agents folder before updating
+  -d DIR        Target directory (default: current directory)
+  -h, --help    Show this help message and exit
+  -v, --version Show version and exit
+```
+
+### Examples
+
+```bash
+# Update from main into the current directory
+./.opencode/update.sh
+
+# Update from a specific tag
+./.opencode/update.sh v1.2.0
+
+# Update into a different project directory
+./.opencode/update.sh -d ~/myproject
+
+# Remove the legacy agents/ folder, then update
+./.opencode/update.sh -D
+```
+
+`update.sh` requires `curl` and `python3`.
