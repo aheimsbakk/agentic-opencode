@@ -104,7 +104,7 @@ Run these steps in order:
 1. Workspace hygiene (update `.gitignore`)
 2. Version bump (`scripts/bump-version.sh`)
 3. Write the worklog (`docs/worklogs/`)
-4. Run validation (`scripts/validate-worklog.sh`)
+4. Run validation (`scripts/validate-worklog.sh`). If the script does not exist, the agent is authorized to create it.
 5. Stage files explicitly (`git add <file> ...`)
 6. Verify staging (`git status`)
 7. Commit (`git commit -m "<message>"`)
