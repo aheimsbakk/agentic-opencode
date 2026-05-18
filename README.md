@@ -19,13 +19,6 @@ Fetch all template files into your project with a single `curl` command:
 curl -fsSL https://raw.githubusercontent.com/aheimsbakk/agentic-opencode/main/.opencode/update.sh | bash
 ```
 
-Or download the script first so you can re-run it later:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/aheimsbakk/agentic-opencode/main/.opencode/update.sh \
-  -o .opencode/update.sh && chmod +x .opencode/update.sh
-```
-
 Then update at any time by running:
 
 ```bash
