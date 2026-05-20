@@ -5,7 +5,7 @@ A ready-to-use agent and skill template for [OpenCode](https://opencode.ai) — 
 ## What it includes
 
 - **4 agents** — specialized AI personas for coding, research, reflection, and Linux expertise
-- **4 skills** — reusable instruction sets the agents load on demand
+- **5 skills** — reusable instruction sets the agents load on demand
 - **Ralph loop** — an autonomous iteration plugin that feeds a prompt back until a task is done
 - **`update.sh`** — one script to fetch or refresh all template files from GitHub
 
@@ -87,6 +87,14 @@ Defines the end-of-task ceremony: write a worklog in `docs/worklogs/`, bump the 
 
 Load this skill when the user says "wrap up", "commit", or "done".
 
+### todo-txt
+
+Tracks tasks, todos, and work logs using the [todo.txt](https://github.com/todotxt/todo.txt) plain-text format. Each task is one short, atomic line. Complex work is split into multiple tasks rather than written as a long description.
+
+Supports priorities `(A)`–`(Z)`, creation and completion dates, `@contexts`, `+tags`, and `key:value` metadata (e.g. `due:`, `pri:`). The file is always kept sorted using `sort todo.txt -o todo.txt`. Completed tasks are marked with a leading `x` and sort to the bottom automatically. Includes operations for adding, completing, editing, deleting, archiving, and filtering tasks.
+
+Default files: `todo.txt` (active tasks) and `done.txt` (archived completed tasks).
+
 ## Ralph loop
 
 The Ralph loop is an autonomous iteration technique. It feeds the same prompt back to the agent repeatedly, letting the agent see its own previous work in files and git history, and improve incrementally until done.
@@ -163,6 +171,7 @@ The plugin is written in TypeScript (`/.opencode/plugin/ralph.ts`) and depends o
     │   ├── clear-language/     # Plain language writing skill
     │   ├── clear-language-norwegian/  # Norwegian klarspråk skill
     │   ├── memory/             # Cross-session memory skill
+    │   ├── todo-txt/           # todo.txt task tracking skill
     │   └── wrap-up/            # Worklog, version bump, and commit skill
     ├── command/
     │   ├── ralph-loop.md       # /ralph-loop command
