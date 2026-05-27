@@ -6,7 +6,6 @@ A ready-to-use agent and skill template for [OpenCode](https://opencode.ai) — 
 
 - **4 agents** — specialized AI personas for coding, research, reflection, and Linux expertise
 - **5 skills** — reusable instruction sets the agents load on demand
-- **Ralph loop** — an autonomous iteration plugin that feeds a prompt back until a task is done
 - **`update.sh`** — one script to fetch or refresh all template files from GitHub
 
 ## Quick start
@@ -95,63 +94,6 @@ Supports priorities `(A)`–`(Z)`, creation and completion dates, `@contexts`, `
 
 Default files: `todo.txt` (active tasks) and `done.txt` (archived completed tasks).
 
-## Ralph loop
-
-The Ralph loop is an autonomous iteration technique. It feeds the same prompt back to the agent repeatedly, letting the agent see its own previous work in files and git history, and improve incrementally until done.
-
-Based on the [Ralph Wiggum technique](https://ghuntley.com/ralph/) by Geoffrey Huntley. The OpenCode plugin in this repository is derived from [rot13maxi/opencode-ralph](https://github.com/rot13maxi/opencode-ralph).
-
-### How it works
-
-1. You run `/ralph-loop <prompt>` inside OpenCode.
-2. The agent creates a state file (`ralph-loop.local.md`) and starts working.
-3. When the agent finishes responding, the Ralph plugin intercepts the idle event.
-4. The same prompt is fed back, with the iteration counter incremented.
-5. The agent sees its previous changes in the files and git history.
-6. The loop continues until a stop condition is met.
-
-### Stop conditions
-
-| Condition | How to trigger |
-|---|---|
-| Completion promise | Agent outputs `<promise>EXACT TEXT</promise>` |
-| Max iterations | Pass `--max-iterations N` when starting |
-| Manual cancel | Run `/cancel-ralph` |
-
-The agent must only output the promise tag when the statement is **genuinely true**. The loop is designed to keep running if the task is incomplete.
-
-### Commands
-
-```
-/ralph-loop <PROMPT> [--max-iterations N] [--completion-promise TEXT]
-/cancel-ralph
-/ralph-help
-```
-
-### Examples
-
-```
-# Fix a bug and stop when all tests pass (up to 10 iterations)
-/ralph-loop "Fix the token refresh logic in auth.ts. Output <promise>FIXED</promise> when all tests pass." \
-  --completion-promise "FIXED" \
-  --max-iterations 10
-
-# Refactor without a hard stop (runs until you cancel)
-/ralph-loop "Refactor the cache layer" --max-iterations 20
-
-# Greenfield build until done
-/ralph-loop "Build a REST API for todos" --completion-promise "DONE" --max-iterations 30
-```
-
-### When to use Ralph
-
-**Good for:** well-defined tasks with clear success criteria, iterative bug fixes, greenfield builds, tasks that benefit from self-correction over multiple attempts.
-
-**Not good for:** tasks requiring human judgment or design decisions, one-shot operations, debugging production issues.
-
-### Plugin setup
-
-The plugin is written in TypeScript (`/.opencode/plugin/ralph.ts`) and depends on `@opencode-ai/plugin`. Dependencies are installed locally under `.opencode/node_modules/` and are excluded from Git via `.opencode/.gitignore`.
 
 ## Repository layout
 
@@ -173,12 +115,6 @@ The plugin is written in TypeScript (`/.opencode/plugin/ralph.ts`) and depends o
     │   ├── memory/             # Cross-session memory skill
     │   ├── todo-txt/           # todo.txt task tracking skill
     │   └── wrap-up/            # Worklog, version bump, and commit skill
-    ├── command/
-    │   ├── ralph-loop.md       # /ralph-loop command
-    │   ├── cancel-ralph.md     # /cancel-ralph command
-    │   └── ralph-help.md       # /ralph-help command
-    └── plugin/
-        └── ralph.ts            # Ralph loop TypeScript plugin
 ```
 
 ## Updating
@@ -214,3 +150,8 @@ Options:
 ```
 
 `update.sh` requires `curl` and `python3`.
+
+## Ralph loop
+
+Need a Raplh Wiggum loop, see https://github.com/aheimsbakk/ralph-loop.
+
