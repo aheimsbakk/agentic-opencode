@@ -1,0 +1,19 @@
+# Changelog
+
+## [v0.1.4] - 2026-06-07
+
+- **why:** Replace separate worklog files with standardized CHANGELOG.md entries per Keep a Changelog format
+- **model:** opencode/deepseek-v4-flash
+- **tags:** wrap-up, skill, changelog, documentation
+
+### Changed
+
+- Rewrote `.opencode/skills/wrap-up/SKILL.md` to prepend CHANGELOG.md entries instead of creating standalone worklog files in `docs/worklogs/`
+- Updated execution sequence: worklog step replaced by "prepend changelog entry to CHANGELOG.md"
+- Updated staging rules to include `CHANGELOG.md` in architecture files list
+
+### Added
+
+- `scripts/bump-version.sh` — version bumping utility supporting patch/minor/major
+- `scripts/validate-changelog.sh` — validates CHANGELOG.md structure and metadata presence
+- `VERSION` file — single-source version tracking
