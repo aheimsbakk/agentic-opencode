@@ -26,3 +26,4 @@ Map abstract architecture to concrete physical files.
 - **Action:** Update Blueprint architecture/contracts and Codebase repository maps/paths. Remove orphaned paths.
 - **Verification:** Execute `verify_codebase_sync.sh` to validate `codebase.md` physical paths.
 - **Requirement:** Synchronization commits must precede final feature/fix commits.
+
