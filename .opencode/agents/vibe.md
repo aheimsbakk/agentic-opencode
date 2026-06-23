@@ -25,3 +25,4 @@ Update all affected docs (BLUEPRINT.md, API docs, protocol docs, README, inline 
 
 **WRAP-UP:**
 Do not version/commit during iteration. On "wrap up", "commit", or "done", load and run the `wrap-up` skill.
+
