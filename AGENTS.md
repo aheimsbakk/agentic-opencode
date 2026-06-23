@@ -1,16 +1,28 @@
 # Master Rules
+- **Dependency:** Co-read `.opencode/RULES.md`.
+- **Workflow:** architecture -> implementation -> testing -> synchronization -> zero problems -> wrap-up.
 
-- ALWAYS read `.opencode/RULES.md` alongside this file. Both are required.
+## General Constraints
+- **CI/CD:** No `.github` workflows.
+- **Commits:** Conventional Commits (`<type>(<scope>): <summary>`). Use `docs(sync):` for documentation updates.
 
-Coding workflows: architecture -> implementation -> testing -> zero problems -> wrap-up.
+## Blueprint Generation (Architecture)
+Create a deterministic, language-agnostic specification.
+- **Core:** Define System Goals, Component Hierarchy, Data Flow, and State Management.
+- **Contracts:** Specify entry points, strict payload schemas, and error boundaries.
+- **Persistence:** Define abstract schemas, memory layouts, and state trees.
+- **External:** Detail env configs, auth flows, and hardware/service dependencies.
+- **Prohibited:** No executable code, framework configs, or language-specific structures/pseudocode. Allow generic state machine logic.
 
-## General Rules
+## Codebase Generation (Mapping)
+Map abstract architecture to concrete physical files.
+- **Structure:** Annotated directory tree and physical path mappings for Blueprint components.
+- **Specs:** Declare target languages, frameworks, dependency managers, and naming conventions.
+- **Entry Points:** Provide exact paths for main loops, servers, or CLI scripts.
+- **Prohibited:** No abstract design rationale. Strict physical implementation mapping only.
 
-- **No CI/CD:** Do not create GitHub Actions or any CI/CD under `.github`.
-- **Commit Messages:** Use Conventional Commits format for all commits: `<type>(<scope>): <short summary>`. Types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `perf`. Reference the version when bumping (e.g. `chore(release): bump to v1.2.0`).
-
-## Documentation Files
-
-- **Structure:** `./BLUEPRINT.md` = Language-agnostic system design, core data models, and architecture. Define system goals, logical components, system interactions, and key architectural decisions. Keep it concise.
-- **No Implementation Details:** `BLUEPRINT.md` must NEVER contain application source code, pseudocode, algorithmic logic, framework configurations, or language-specific file directories.
-- **Allowed Abstractions:** Document only high-level domain boundaries, abstract data schemas (e.g., relational models or JSON schemas), and system-to-system interface contracts (inputs/outputs). The architecture must remain fully executable in any programming language.
+## Synchronization Protocol
+- **Trigger:** Code changes altering system goals, hierarchy, state, or directory structure.
+- **Action:** Update Blueprint architecture/contracts and Codebase repository maps/paths. Remove orphaned paths.
+- **Verification:** Execute `verify_codebase_sync.sh` to validate `codebase.md` physical paths.
+- **Requirement:** Synchronization commits must precede final feature/fix commits.
