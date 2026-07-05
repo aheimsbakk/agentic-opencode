@@ -1,0 +1,16 @@
+# Temporary AI-generated files
+.handoff/
+
+# Build artifacts and caches
+*.log
+*.tmp
+*.cache
+
+# Environment files
+.env
+.env.local
+
+# Virtual environments
+venv/
+.venv/
+node_modules/

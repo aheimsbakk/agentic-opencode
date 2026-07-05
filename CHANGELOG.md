@@ -1,5 +1,16 @@
 # Changelog
 
+## [v0.1.5] - 2026-07-05
+
+- **why:** Fix documentation casing and file formatting
+- **model:** qwen-3.6-think-coding
+- **tags:** docs, formatting
+
+### Fixed
+
+- Capitalized `CODEBASE.md` in AGENTS.md synchronization protocol
+- Added missing trailing newline to `.opencode/agents/vibe.md`
+
 ## [v0.1.4] - 2026-06-07
 
 - **why:** Replace separate worklog files with standardized CHANGELOG.md entries per Keep a Changelog format
