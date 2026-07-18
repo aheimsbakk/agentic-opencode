@@ -1,5 +1,19 @@
 # Changelog
 
+## [v0.2.0] - 2026-07-18
+
+- **why:** Add Playwright MCP server for browser automation
+- **model:** opencode/deepseek-v4-flash-free
+- **tags:** mcp, playwright, config
+
+### Added
+
+- Playwright MCP server configuration to `opencode.json` — enables browser automation via the `@playwright/mcp` package
+
+### Changed
+
+- `autoupdate` set to `false` in `opencode.json` to prevent automatic update notifications
+
 ## [v0.1.5] - 2026-07-05
 
 - **why:** Fix documentation casing and file formatting
