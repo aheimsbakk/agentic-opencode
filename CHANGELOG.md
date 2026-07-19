@@ -1,5 +1,15 @@
 # Changelog
 
+## [v0.2.1] - 2026-07-19
+
+- **why:** Disable Playwright MCP server
+- **model:** qwen-3.6-think-coding-mtp
+- **tags:** mcp, playwright, config
+
+### Changed
+
+- Commented out Playwright MCP server configuration in `opencode.json`
+
 ## [v0.2.0] - 2026-07-18
 
 - **why:** Add Playwright MCP server for browser automation
