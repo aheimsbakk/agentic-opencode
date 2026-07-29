@@ -1,5 +1,15 @@
 # Changelog
 
+## [v0.2.2] - 2026-07-29
+
+- **why:** Add intent-based commenting rule to project rules
+- **model:** kompis/gemma-4-26b
+- **tags:** docs, rules
+
+### Added
+
+- Rule 27 for intent-based commenting in `.opencode/RULES.md`
+
 ## [v0.2.1] - 2026-07-19
 
 - **why:** Disable Playwright MCP server
