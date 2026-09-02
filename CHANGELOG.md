@@ -1,5 +1,16 @@
 # Changelog
 
+## [v0.2.3] - 2026-09-02
+
+- **why:** Restructure project rules for agent reliability and require explicit commit consent
+- **model:** z-ai/glm-5.3-flash
+- **tags:** docs, rules
+
+### Changed
+
+- Rewrote `.opencode/RULES.md`: merged layer, presentation, and state rules into `Layer Boundaries` and `State Ownership & Concurrency`, added `Verification Gate` and `Commit Consent`, removed `Protocol Alignment`
+- Removed the Builder-to-QA handoff trigger from the wrap-up skill so commits require a direct user request
+
 ## [v0.2.2] - 2026-07-29
 
 - **why:** Add intent-based commenting rule to project rules
