@@ -1,5 +1,20 @@
 # Changelog
 
+## [v0.2.4] - 2026-10-09
+
+- **why:** Keep README user-facing and move developer docs to CONTRIBUTING.md
+- **model:** kompis/qwen3.8-flash-next-iq3_s
+- **tags:** docs, rules
+
+### Added
+
+- Rule 28 `Documentation Separation` in `.opencode/RULES.md`: `README.md` holds user docs only, `CONTRIBUTING.md` holds developer docs
+
+### Changed
+
+- Rule 24 now documents `scripts/` usage in `CONTRIBUTING.md` instead of `README.md`
+- Rule 26 now names `README.md` (user-facing) and `CONTRIBUTING.md` (developer guides, scripts, tooling) as separate sync targets
+
 ## [v0.2.3] - 2026-09-02
 
 - **why:** Restructure project rules for agent reliability and require explicit commit consent
