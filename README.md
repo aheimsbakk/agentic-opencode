@@ -82,7 +82,7 @@ Load this skill when the user says "remember", references a past session, or sta
 
 ### wrap-up
 
-Defines the end-of-task ceremony: write a worklog in `docs/worklogs/`, bump the version with `scripts/bump-version.sh`, stage only the changed files, and commit using Conventional Commits format. No wildcard staging (`git add .`) is allowed.
+Defines the end-of-task ceremony: write a changelog, bump the version with `scripts/bump-version.sh`, stage only the changed files, and commit using Conventional Commits format. No wildcard staging (`git add .`) is allowed.
 
 Load this skill when the user says "wrap up", "commit", or "done".
 
@@ -114,7 +114,7 @@ Default files: `todo.txt` (active tasks) and `done.txt` (archived completed task
     │   ├── clear-language-norwegian/  # Norwegian klarspråk skill
     │   ├── memory/             # Cross-session memory skill
     │   ├── todo-txt/           # todo.txt task tracking skill
-    │   └── wrap-up/            # Worklog, version bump, and commit skill
+    │   └── wrap-up/            # changelog, version bump, and commit skill
 ```
 
 ## Updating

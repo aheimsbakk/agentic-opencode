@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.2.5] - 2026-10-16
+
+- **why:** Remove leftover references to the retired worklog flow
+- **model:** kompis/qwen3.8-flash-next-iq3_s
+- **tags:** docs, rules, skills
+
+### Changed
+
+- Rule 25 in `.opencode/RULES.md` drops the worklog front-matter example
+- Wrap-up skill in `.opencode/skills/wrap-up/SKILL.md` no longer names `docs/worklogs/` in its gitignore safety rule
+- `README.md` now says the wrap-up skill writes a changelog, not a worklog
+
 ## [v0.2.4] - 2026-10-09
 
 - **why:** Keep README user-facing and move developer docs to CONTRIBUTING.md
