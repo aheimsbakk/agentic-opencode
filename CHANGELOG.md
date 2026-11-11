@@ -1,5 +1,15 @@
 # Changelog
 
+## [v0.3.2] - 2026-11-11
+
+- **why:** `opencode.json` carried a config key that V2 does not support
+- **model:** kompis/qwen3.8-flash-next-iq3_s
+- **tags:** config, v2
+
+### Fixed
+
+- Removed the `lsp` key from `opencode.json`; OpenCode V2 has no `lsp` config option
+
 ## [v0.3.1] - 2026-11-11
 
 - **why:** The vibe agent told the model to use a tool V2 does not provide
