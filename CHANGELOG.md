@@ -1,5 +1,15 @@
 # Changelog
 
+## [v0.3.1] - 2026-11-11
+
+- **why:** The vibe agent told the model to use a tool V2 does not provide
+- **model:** openrouter/deepseek-flash-latest
+- **tags:** agents, skills, v2
+
+### Fixed
+
+- Replaced the dead `TodoWrite` instruction in `.opencode/agents/vibe.md` with the bundled `todo-txt` skill, because V2 hides `todowrite` unless `experimental.todo` is enabled
+
 ## [v0.3.0] - 2026-11-11
 
 - **why:** Make the bundled agents and config use native OpenCode V2 permissions
