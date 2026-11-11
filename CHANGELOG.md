@@ -1,5 +1,20 @@
 # Changelog
 
+## [v0.3.0] - 2026-11-11
+
+- **why:** Make the bundled agents and config use native OpenCode V2 permissions
+- **model:** openrouter/deepseek-flash-latest
+- **tags:** agents, permissions, config, v2
+
+### Changed
+
+- Converted `facts`, `linux-expert`, `reflect`, and `vibe` frontmatter from the V1 `tools` map to ordered V2 `permissions` rules
+- Renamed V1 actions in those agents: `bash` to `shell`, `task` to `subagent`, and `write` plus `edit` to `edit`
+- Removed `temperature` and `top_p` from agent frontmatter; V2 ignores them, so they are dropped instead of moved to model variants
+- Renamed `snapshot` to `snapshots` and `autoupdate` to `update` in `opencode.json`
+- Reshaped the commented Playwright MCP block to `mcp.servers` with `disabled: true`
+- Updated README agent blurbs to describe permissions instead of tools
+
 ## [v0.2.5] - 2026-10-16
 
 - **why:** Remove leftover references to the retired worklog flow

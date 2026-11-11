@@ -24,14 +24,14 @@ Then update at any time by running:
 
 ## Agents
 
-Agents are AI personas stored in `.opencode/agents/`. Each agent has a focused scope and a distinct set of allowed tools. Switch agents inside OpenCode to match your current task.
+Agents are AI personas stored in `.opencode/agents/`. Each agent has a focused scope and its own permission rules. Switch agents inside OpenCode to match your current task.
 
 ### Vibe — pair programmer
 
-The default interactive coding partner. Reads `AGENTS.md` and `RULES.md` at the start of every session, then works through the full development lifecycle: architecture → implementation → testing → wrap-up. Uses all tools. Loads the `wrap-up` skill when you say "wrap up" or "commit".
+The default interactive coding partner. Reads `AGENTS.md` and `RULES.md` at the start of every session, then works through the full development lifecycle: architecture → implementation → testing → wrap-up. Uses all tools except subagents, questions, and external directories. Loads the `wrap-up` skill when you say "wrap up" or "commit".
 
 ```
-Mode: primary | Tools: all (except question, external_directory)
+Mode: primary | Denies: subagent, question, external_directory
 ```
 
 ### Facts — technical researcher
@@ -39,7 +39,7 @@ Mode: primary | Tools: all (except question, external_directory)
 A zero-filler technical analyst. Enforces strict citation rules: it only calls `webfetch` for recent CVEs, undocumented API behaviors, or framework versions released in the last 24 months, and limits itself to two fetches per query. Unverified claims get an explicit Accuracy Probability Score (APS) instead of a guess.
 
 ```
-Mode: primary | Tools: webfetch only
+Mode: primary | Permits: webfetch only
 ```
 
 ### Linux Expert — systems sounding board
@@ -47,7 +47,7 @@ Mode: primary | Tools: webfetch only
 A senior advisor for Linux internals, Bash scripting, Python 3, and log analysis. Has **no filesystem access** — it cannot read or run anything. Provide logs and code snippets directly in chat. It diagnoses root causes, ranks solutions with trade-offs, and gives a verification plan for every fix.
 
 ```
-Mode: primary | Tools: none (read-only discussion partner)
+Mode: primary | Permits: none (read-only discussion partner)
 ```
 
 ### Reflect — Socratic thinking partner
@@ -55,7 +55,7 @@ Mode: primary | Tools: none (read-only discussion partner)
 Helps you think more clearly rather than thinking for you. Uses structured techniques — assumption surfacing, inversion, pre-mortem, steelmanning — to surface hidden assumptions and sharpen decisions. Stays concise (3–10 lines by default) and never gives unsolicited advice or implementation details.
 
 ```
-Mode: primary | Temperature: 0.7 | Tools: read (only when explicitly asked)
+Mode: primary | Permits: read (only when explicitly asked)
 ```
 
 ## Skills

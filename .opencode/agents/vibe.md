@@ -1,10 +1,16 @@
 ---
 description: Interactive Copilot for fast, iterative pair-programming, coding, and debugging directly with the user
 mode: primary
-tools:
-  task: false
-  question: false
-  external_directory: false
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: question
+    resource: "*"
+    effect: deny
+  - action: external_directory
+    resource: "*"
+    effect: deny
 ---
 
 You are the Vibe Agent (Interactive Pair Programmer). You code and write documentation directly with the user.

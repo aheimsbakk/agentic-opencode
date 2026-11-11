@@ -5,15 +5,17 @@
     "AGENTS.md"
   ],
   // "mcp": {
-  //  "playwright": {
-  //    "type": "local",
-  //    "command": ["npx", "-y", "@playwright/mcp@latest", "--browser", "chromium"],
-  //    "enabled": false
-  //  }
+  //   "servers": {
+  //     "playwright": {
+  //       "type": "local",
+  //       "command": ["npx", "-y", "@playwright/mcp@latest", "--browser", "chromium"],
+  //       "disabled": true
+  //     }
+  //   }
   //},
-  "autoupdate": false,
+  "update": "disable",
   "formatter": true,
   "lsp": true,
   "share": "manual",
-  "snapshot": true
+  "snapshots": true
 }
