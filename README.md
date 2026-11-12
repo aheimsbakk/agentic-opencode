@@ -90,7 +90,7 @@ Load this skill when the user says "wrap up", "commit", or "done".
 
 Tracks tasks, todos, and work logs using the [todo.txt](https://github.com/todotxt/todo.txt) plain-text format. Each task is one short, atomic line. Complex work is split into multiple tasks rather than written as a long description.
 
-Supports priorities `(A)`–`(Z)`, creation and completion dates, `@contexts`, `+tags`, and `key:value` metadata (e.g. `due:`, `pri:`). The file is always kept sorted using `sort todo.txt -o todo.txt`. Completed tasks are marked with a leading `x` and sort to the bottom automatically. Includes operations for adding, completing, editing, deleting, archiving, and filtering tasks.
+Supports priorities `(A)`–`(Z)`, creation and completion dates, `@contexts`, `+tags`, and `key:value` metadata (e.g. `due:`, `duehr:`, `pri:`). The file is always kept sorted using `LC_ALL=C sort todo.txt -o todo.txt`. Completed tasks are marked with a leading `x` and sort to the bottom automatically. Includes operations for adding, completing, editing, deleting, archiving, and filtering tasks.
 
 Default files: `todo.txt` (active tasks) and `done.txt` (archived completed tasks).
 

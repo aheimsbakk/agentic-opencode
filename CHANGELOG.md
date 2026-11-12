@@ -1,5 +1,26 @@
 # Changelog
 
+## [v0.4.0] - 2026-11-12
+
+- **why:** Agents need time-gated deadlines, and the sorting rule broke on UTF-8 locales
+- **model:** kompis/qwen3.8-flash-next-iq3_s
+- **tags:** skills, todo-txt, sorting, docs
+
+### Added
+
+- `duehr:HHMM` key in `.opencode/skills/todo-txt/SKILL.md`. It stores a 24-hour local time without a colon, and pairs with `due:` to mark a time-gated deadline.
+- Rule against writing a time inside `due:`. That form is invalid todo.txt, and parsers drop the due date.
+
+### Changed
+
+- The `Add` operation now records `due:` for a named deadline and `duehr:` for a named hour.
+- The `Filter` operation explains how to compare date and hour together for an exact overdue check.
+- `README.md` lists `duehr:` among the supported `key:value` metadata.
+
+### Fixed
+
+- Sorting now runs `LC_ALL=C sort todo.txt -o todo.txt`. Plain `sort` follows the machine locale, so a UTF-8 locale collated `(` after digits and placed tasks without a priority above every prioritised task.
+
 ## [v0.3.2] - 2026-11-11
 
 - **why:** `opencode.json` carried a config key that V2 does not support
